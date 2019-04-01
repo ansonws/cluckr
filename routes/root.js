@@ -13,9 +13,9 @@ router.post("/", (req, res) => {
   res.redirect("/clucks");
 });
 
-router.post("/sign_out", (request, response) => {
-  response.clearCookie("username");
-  response.redirect("/");
+router.post("/sign_out", (req, res) => {
+  res.clearCookie("username");
+  res.redirect("/");
 });
 
 

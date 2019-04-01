@@ -1,0 +1,18 @@
+<%- include("../partials/header") %>
+
+<h1>Your Recent Clucks</h1>
+<% if (clucks.length === 0) { %>
+<h1>empty</h1>
+<% } else { for (let cluck of clucks) { %>    <div>
+        <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title"><%= cluck.createdAt %></h5>
+        <p class="card-text"><%= cluck.content%></p>
+        <a href="#" class="btn btn-light">Go somewhere</a>
+        </div>
+        <img class="card-img-top" src="<%= cluck.image_url%>">
+        </div>
+    </div>
+    <% } } %>
+
+<%- include("../partials/footer") %>
