@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 app.use("/", rootRouter);
 app.use("/clucks", clucksRouter);
 
-const PORT = 4545;
+const PORT = process.env.PORT || 4545;
 const ADDRESS = "localhost"; 
 app.listen(PORT, ADDRESS, () => {
   console.log(`Server listenning on http://${ADDRESS}:${PORT}`);

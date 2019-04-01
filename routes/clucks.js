@@ -3,29 +3,32 @@ const router = express.Router();
 const knex = require("../db/client");
 
 router.get('/',(req, res) => {
-    if(req.cookies.username) {
+    if (req.cookies.username) {
         knex("clucks")
+            .where({
+                username: req.cookies.username
+            })
             .orderBy("createdAt", "DESC")
             .then(data => {
-                console.log(data);
-                console.log("YOUR FORM WAS GET");
-                res.render("clucks/index", {clucks: data});
+                res.render("clucks/index", {
+                    clucks: data, 
+                    username: req.cookies.username
+                });
             });
     } else {
-        res.render("login")
+        res.render("login", {username: false});
     }
 });
 
 router.get("/new", (req, res) => {
-    if(req.cookies.username) {
-        res.render("clucks/new");
+    if (req.cookies.username) {
+        res.render("clucks/new", { username: req.cookies.username });
     } else {
-        res.render("login")
+        res.render("login", {username: false});
     }
   });
 
 router.post("/", (req, res) => {
-    console.log("FINALLY YOU POST");
     knex() 
       .insert({
         username: req.cookies.username,

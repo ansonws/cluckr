@@ -12,8 +12,13 @@
 <body>
     <div class="container mt-5">
         <nav class="navbar navbar-white bg-light">
-            <a class="navbar-brand" href="/"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/twitter/53/chicken_1f414.png" width="72" height="72">Home</a>
+            <a class="navbar-brand" href="/"><img src="/assets/head_logo.png" width="72" height="72">Home</a>
             <a href="/clucks">View Clucks</a>
             <a href="/clucks/new">New Cluck</a>
-            <a href="/sign_out">Sign Out</a>
+            <% if (username) {%>
+            <form action="/sign_out" method="POST">
+                <label for="sign_out">Logged in as: <%= username%></label>
+                <input name="sign_out" type="submit" value="Sign Out">
+                <% } %>
+            </form>
         </nav>
