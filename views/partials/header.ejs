@@ -11,14 +11,13 @@
 </head>
 <body>
     <div class="container mt-5">
-        <nav class="navbar navbar-white bg-light">
-            <a class="navbar-brand" href="/"><img src="/assets/head_logo.png" width="72" height="72">Home</a>
-            <a href="/clucks">View Clucks</a>
-            <a href="/clucks/new">New Cluck</a>
-            <% if (username) {%>
+    <nav class="navbar navbar-white bg-light">
+    <a class="navbar-brand" href="/clucks"><img src="/assets/head_logo.png" width="72" height="72">Home</a>
+    <a href="/clucks/new"><button type="button" class="btn btn-dark">Cluck!</button></a>
+    <% if (username) {%>
             <form action="/sign_out" method="POST">
-                <label for="sign_out">Logged in as: <%= username%></label>
-                <input name="sign_out" type="submit" value="Sign Out">
-                <% } %>
-            </form>
+                <label for="sign_out"><span class="badge badge-pill badge-danger"><%= username %></span></label>
+                <button name="sign_out" type="submit" class="btn btn-link">Sign Out</button>
+                </form>
+            <% } %>
         </nav>

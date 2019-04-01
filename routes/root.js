@@ -1,9 +1,20 @@
 const express = require("express");
 const router = express.Router();
+const knex = require("../db/client");
 
 router.get("/", (req, res) => {
   if (req.cookies.username) {
-    res.render("index", { username:req.cookies.username });
+    knex("clucks")
+      .where({
+          username: req.cookies.username
+      })
+      .orderBy("createdAt", "DESC")
+      .then(data => {
+          res.render("clucks/index", {
+              clucks: data, 
+              username: req.cookies.username
+          });
+      });
   } else {
     res.render("login", {username: false});
   }
