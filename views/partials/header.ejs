@@ -19,5 +19,7 @@
                 <label for="sign_out"><span class="badge badge-pill badge-danger"><%= username %></span></label>
                 <button name="sign_out" type="submit" class="btn btn-link">Sign Out</button>
                 </form>
-            <% } %>
+            <% } else { %>
+    <a href="/"><button type="button" class="btn btn-light">Sign In</button></a>
+    <% } %>
         </nav>

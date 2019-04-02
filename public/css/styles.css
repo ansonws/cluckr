@@ -10,6 +10,16 @@ nav {
     text-align: left;
 }
 
-#cluck-id {
-    text-align: right;
+::selection {
+    background-color: #dc3545;
+}
+
+@media(min-width: 600px) {
+    #trending {
+        display: hidden;
+    }
+}
+
+.center {
+    margin: auto;
 }

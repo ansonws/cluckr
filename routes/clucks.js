@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const knex = require("../db/client");
-const dateConverter = require("../custom_modules/creationDate");
+const dateConverter = require("../custom_modules/dateConverter");
+const trending = require("../custom_modules/trending");
 
 router.get('/',(req, res) => {
     if (req.cookies.username) {
@@ -11,11 +12,12 @@ router.get('/',(req, res) => {
             })
             .orderBy("createdAt", "DESC")
             .then(data => {
-                console.log(new Date() - data[0].createdAt);
+                console.log(trending());
                 res.render("clucks/index", {
                     clucks: data, 
                     username: req.cookies.username,
-                    dateConverter: dateConverter
+                    dateConverter: dateConverter,
+                    trending: trending
                 });
             });
     } else {

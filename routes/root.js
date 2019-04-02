@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const knex = require("../db/client");
+const dateConverter = require("../custom_modules/dateConverter");
 
 router.get("/", (req, res) => {
   if (req.cookies.username) {
@@ -12,7 +13,8 @@ router.get("/", (req, res) => {
       .then(data => {
           res.render("clucks/index", {
               clucks: data, 
-              username: req.cookies.username
+              username: req.cookies.username,
+              dateConverter: dateConverter
           });
       });
   } else {
