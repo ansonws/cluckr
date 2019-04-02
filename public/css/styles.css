@@ -5,3 +5,11 @@ nav {
     justify-content: space-around;
     text-align: space-around;
 }
+
+#avatar {
+    text-align: left;
+}
+
+#cluck-id {
+    text-align: right;
+}

@@ -5,13 +5,16 @@
 <h1>empty</h1>
 <% } else { for (let cluck of clucks) { %>    <div class="mb-4">
         <div class="card" style="width: 18rem;">
+        <div style="justify-content: space-between">
+            <a href="#" class="btn btn-link" id="avatar"><img src="/assets/fried-chicken.jpg" alt="fried chicken" height="56px" width="56px"><span><%= cluck.username %> • <%= dateConverter(cluck.createdAt) %></span><a>
+        </div>
+        
         <div class="card-body">
-        <h5 class="card-title"><%= cluck.createdAt %></h5>
         <p class="card-text"><%= cluck.content%></p>
-        <a href="#" class="btn btn-light">Go somewhere</a>
         </div>
         <% if (cluck.image_url) { %>
         <img class="card-img-bottom" src="<%= cluck.image_url %>" alt="<%= cluck.image_url %>"><% } %>
+        <a href="#" class="btn btn-link">Delete</a>
         </div>
     </div>
     <% } }%>
