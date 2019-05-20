@@ -1,0 +1,25 @@
+body {
+    height: 100%
+}
+nav {
+    justify-content: space-around;
+    text-align: space-around;
+}
+
+#avatar {
+    text-align: left;
+}
+
+::selection {
+    background-color: #dc3545;
+}
+
+@media(min-width: 600px) {
+    #trending {
+        display: hidden;
+    }
+}
+
+.center {
+    margin: auto;
+}
